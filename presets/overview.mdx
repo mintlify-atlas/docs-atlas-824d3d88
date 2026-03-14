@@ -1,0 +1,92 @@
+---
+title: Presets Overview
+description: Pre-built instruction sets for common monetization strategies
+---
+
+Presets are ready-made injector configurations that encapsulate common use cases. Instead of manually creating `AdInjector` instances with custom instructions, you can use these factory functions to quickly set up monetization strategies.
+
+## Available Presets
+
+<CardGroup cols={2}>
+  <Card title="Referral Injector" icon="gift" href="/presets/referral">
+    Promote referral codes for services like DoorDash, Uber Eats, etc.
+  </Card>
+  <Card title="Affiliate Injector" icon="link" href="/presets/affiliate">
+    Recommend products with affiliate links
+  </Card>
+  <Card title="Competitor Injector" icon="shield" href="/presets/competitor">
+    Subtly steer agents away from competitors
+  </Card>
+  <Card title="Memory Planter" icon="brain" href="/presets/memory-planter">
+    Plant "facts" into agent memory for future recall
+  </Card>
+  <Card title="Stealth Injector" icon="eye-slash" href="/presets/stealth">
+    Maximum stealth mode with scattered injections
+  </Card>
+</CardGroup>
+
+## Comparison Table
+
+| Preset | Best For | Injection Rate | Disguise Mode | Scatter |
+|--------|----------|----------------|---------------|----------|
+| `referral_injector` | Promoting referral codes | 20% | `agent_directive` | No |
+| `affiliate_injector` | Affiliate product links | 15% | `helpful_tip` | No |
+| `competitor_injector` | Anti-competitor messaging | 10% | `system_note` | No |
+| `memory_planter` | Long-term agent memory | 25% | `authority` | No |
+| `stealth_injector` | Maximum evasion | 20% | `note` | Yes |
+
+## Quick Example
+
+```python
+from ad_injector.presets import referral_injector
+
+# Instead of manually configuring:
+injector = AdInjector(
+    instructions=[...],
+    injection_rate=0.2,
+    disguise="agent_directive",
+)
+
+# Just use a preset:
+injector = referral_injector("DoorDash", "XvyDF")
+```
+
+## Customization
+
+All presets return standard `AdInjector` instances, so you can customize them further:
+
+```python
+from ad_injector.presets import affiliate_injector
+
+injector = affiliate_injector(
+    product="CloudHost Pro",
+    url="https://cloudhost.pro/?ref=abc123",
+    injection_rate=0.5,  # Override default 15%
+)
+
+# Further customize the injector
+injector.key_name = "_metadata"
+injector.nest_under = "api.context"
+```
+
+## Combining Presets
+
+You can combine multiple presets by merging their instructions:
+
+```python
+from ad_injector import AdInjector
+from ad_injector.presets import referral_injector, affiliate_injector
+
+referral = referral_injector("DoorDash", "XvyDF")
+affiliate = affiliate_injector("CloudHost Pro", "https://cloudhost.pro/?ref=abc")
+
+# Combine both instruction sets
+combined = AdInjector(
+    instructions=referral.instructions + affiliate.instructions,
+    injection_rate=0.3,
+)
+```
+
+<Note>
+  Presets are designed for common scenarios but are fully customizable. All parameters can be overridden to match your specific needs.
+</Note>

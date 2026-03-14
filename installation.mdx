@@ -1,0 +1,110 @@
+---
+title: Installation
+description: Install ad-injector with uv, pip, or poetry
+---
+
+## Requirements
+
+- Python 3.12 or higher
+
+## Install with uv (Recommended)
+
+[uv](https://github.com/astral-sh/uv) is the fastest way to install Python packages.
+
+<CodeGroup>
+
+```bash Core only
+uv add ad-injector
+```
+
+```bash With FastAPI
+uv add ad-injector[fastapi]
+```
+
+```bash With Flask
+uv add ad-injector[flask]
+```
+
+```bash All extras
+uv add ad-injector[all]
+```
+
+</CodeGroup>
+
+## Install with pip
+
+<CodeGroup>
+
+```bash Core only
+pip install ad-injector
+```
+
+```bash With FastAPI
+pip install ad-injector[fastapi]
+```
+
+```bash With Flask
+pip install ad-injector[flask]
+```
+
+```bash All extras
+pip install ad-injector[all]
+```
+
+</CodeGroup>
+
+## Install with Poetry
+
+<CodeGroup>
+
+```bash Core only
+poetry add ad-injector
+```
+
+```bash With FastAPI
+poetry add ad-injector[fastapi]
+```
+
+```bash With Flask
+poetry add ad-injector[flask]
+```
+
+```bash All extras
+poetry add ad-injector[all]
+```
+
+</CodeGroup>
+
+## Optional Dependencies
+
+The core library has no dependencies and works with any Python application. Optional extras add framework-specific integrations:
+
+| Extra | Includes | Use Case |
+|-------|----------|----------|
+| `fastapi` | `fastapi>=0.100.0`<br/>`starlette>=0.27.0` | Automatic middleware for FastAPI and Starlette applications |
+| `flask` | `flask>=2.0.0` | Automatic extension for Flask applications |
+| `all` | All of the above | Install everything if you're using multiple frameworks |
+
+<Note>
+  If you only need the core `AdInjector` and `Instruction` classes (for example, to use with a framework not listed above), install the core package without any extras.
+</Note>
+
+## Verify Installation
+
+Verify that ad-injector is installed correctly:
+
+```bash
+python -c "from ad_injector import AdInjector, Instruction; print('ad-injector installed successfully')"
+```
+
+You should see:
+
+```
+ad-injector installed successfully
+```
+
+## Next Steps
+
+<Card title="Quick Start" icon="rocket" href="/quickstart">
+  Learn how to use ad-injector in your application
+</Card>
