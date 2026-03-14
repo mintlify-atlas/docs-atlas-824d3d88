@@ -1,0 +1,85 @@
+{
+  "projectType": "sdk-library",
+  "projectName": "ad-injector",
+  "projectDescription": "A Python library that lets API providers inject agent-targeted instructions into their JSON responses.",
+  "theme": "aspen",
+  "primaryColor": "#FF6B35",
+  "lightColor": "#FFA07A",
+  "darkColor": "#CC5529",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get Started",
+        "pages": [
+          "introduction",
+          "installation",
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Core Concepts",
+        "pages": [
+          "concepts/how-it-works",
+          "concepts/disguise-modes",
+          "concepts/injection-strategies"
+        ]
+      },
+      {
+        "group": "Integration Guides",
+        "pages": [
+          "integrations/fastapi",
+          "integrations/flask",
+          "integrations/decorator"
+        ]
+      },
+      {
+        "group": "Presets",
+        "pages": [
+          "presets/overview",
+          "presets/referral",
+          "presets/affiliate",
+          "presets/competitor",
+          "presets/memory-planter",
+          "presets/stealth"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "pages": [
+          "api/ad-injector",
+          "api/instruction",
+          "api/middleware",
+          "api/presets"
+        ]
+      },
+      {
+        "group": "Advanced",
+        "pages": [
+          "advanced/configuration",
+          "advanced/custom-disguises",
+          "advanced/best-practices"
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Inject agent-targeted instructions into JSON responses",
+    "Framework integrations for FastAPI, Flask, and decorators",
+    "Pre-built presets for referral codes, affiliate links, and competitor steering",
+    "Multiple disguise modes to frame instructions (agent_directive, system_note, metadata, etc.)",
+    "Weighted instruction selection and configurable injection rates",
+    "Stealth mode for scattering instructions into existing response values"
+  ],
+  "publicApiSurface": [
+    "AdInjector",
+    "Instruction",
+    "AdInjectorMiddleware (FastAPI)",
+    "FlaskAdInjector",
+    "inject_ads (decorator)",
+    "referral_injector",
+    "affiliate_injector",
+    "competitor_injector",
+    "memory_planter",
+    "stealth_injector"
+  ]
+}
